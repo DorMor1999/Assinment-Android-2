@@ -78,45 +78,86 @@ public class MainActivity extends AppCompatActivity {
                 {
                         findViewById(R.id.main_matrix_pos_00),
                         findViewById(R.id.main_matrix_pos_01),
-                        findViewById(R.id.main_matrix_pos_02)
+                        findViewById(R.id.main_matrix_pos_02),
+                        findViewById(R.id.main_matrix_pos_03),
+                        findViewById(R.id.main_matrix_pos_04)
                 },
                 {
                         findViewById(R.id.main_matrix_pos_10),
                         findViewById(R.id.main_matrix_pos_11),
-                        findViewById(R.id.main_matrix_pos_12)
+                        findViewById(R.id.main_matrix_pos_12),
+                        findViewById(R.id.main_matrix_pos_13),
+                        findViewById(R.id.main_matrix_pos_14)
                 },
                 {
                         findViewById(R.id.main_matrix_pos_20),
                         findViewById(R.id.main_matrix_pos_21),
-                        findViewById(R.id.main_matrix_pos_22)
+                        findViewById(R.id.main_matrix_pos_22),
+                        findViewById(R.id.main_matrix_pos_23),
+                        findViewById(R.id.main_matrix_pos_24)
                 },
                 {
                         findViewById(R.id.main_matrix_pos_30),
                         findViewById(R.id.main_matrix_pos_31),
-                        findViewById(R.id.main_matrix_pos_32)
+                        findViewById(R.id.main_matrix_pos_32),
+                        findViewById(R.id.main_matrix_pos_33),
+                        findViewById(R.id.main_matrix_pos_34)
                 },
                 {
                         findViewById(R.id.main_matrix_pos_40),
                         findViewById(R.id.main_matrix_pos_41),
-                        findViewById(R.id.main_matrix_pos_42)
+                        findViewById(R.id.main_matrix_pos_42),
+                        findViewById(R.id.main_matrix_pos_43),
+                        findViewById(R.id.main_matrix_pos_44)
                 },
                 {
                         findViewById(R.id.main_matrix_pos_50),
                         findViewById(R.id.main_matrix_pos_51),
-                        findViewById(R.id.main_matrix_pos_52)
+                        findViewById(R.id.main_matrix_pos_52),
+                        findViewById(R.id.main_matrix_pos_53),
+                        findViewById(R.id.main_matrix_pos_54)
                 },
                 {
                         findViewById(R.id.main_matrix_pos_60),
                         findViewById(R.id.main_matrix_pos_61),
-                        findViewById(R.id.main_matrix_pos_62)
+                        findViewById(R.id.main_matrix_pos_62),
+                        findViewById(R.id.main_matrix_pos_63),
+                        findViewById(R.id.main_matrix_pos_64)
                 }
+                ,
+                {
+                        findViewById(R.id.main_matrix_pos_70),
+                        findViewById(R.id.main_matrix_pos_71),
+                        findViewById(R.id.main_matrix_pos_72),
+                        findViewById(R.id.main_matrix_pos_73),
+                        findViewById(R.id.main_matrix_pos_74)
+                }
+                ,
+                {
+                        findViewById(R.id.main_matrix_pos_80),
+                        findViewById(R.id.main_matrix_pos_81),
+                        findViewById(R.id.main_matrix_pos_82),
+                        findViewById(R.id.main_matrix_pos_83),
+                        findViewById(R.id.main_matrix_pos_84)
+                }
+                ,
+                {
+                        findViewById(R.id.main_matrix_pos_90),
+                        findViewById(R.id.main_matrix_pos_91),
+                        findViewById(R.id.main_matrix_pos_92),
+                        findViewById(R.id.main_matrix_pos_93),
+                        findViewById(R.id.main_matrix_pos_94)
+                }
+
         };
 
         //array of cols cars
         main_cols_IMG_cars = new AppCompatImageView[]{
                 findViewById(R.id.main_col_car_0),
                 findViewById(R.id.main_col_car_1),
-                findViewById(R.id.main_col_car_2)
+                findViewById(R.id.main_col_car_2),
+                findViewById(R.id.main_col_car_3),
+                findViewById(R.id.main_col_car_4)
         };
 
     }

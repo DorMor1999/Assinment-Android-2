@@ -64,11 +64,29 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             app:srcCompat="@drawable/f1_race_car"
-            android:visibility="visible"
+            android:visibility="invisible"
             android:rotation="-90"
             />
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_col_car_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/f1_race_car"
+            android:visibility="visible"
+            android:rotation="-90"
+            />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_col_car_3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/f1_race_car"
+            android:visibility="invisible"
+            android:rotation="-90"
+            />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_col_car_4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -116,6 +134,20 @@
                 android:layout_weight="1"
                 app:srcCompat="@drawable/barrier"
                 android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_03"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_04"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -142,6 +174,20 @@
                 android:visibility="invisible"/>
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/main_matrix_pos_12"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_13"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_14"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -177,6 +223,20 @@
                 android:layout_weight="1"
                 app:srcCompat="@drawable/barrier"
                 android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_23"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_24"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <!-- Row 4 -->
@@ -202,6 +262,20 @@
                 android:visibility="invisible"/>
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/main_matrix_pos_32"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_33"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_34"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -238,6 +312,20 @@
                 android:layout_weight="1"
                 app:srcCompat="@drawable/barrier"
                 android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_43"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_44"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <!-- Row 6 -->
@@ -263,6 +351,20 @@
                 android:visibility="invisible"/>
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/main_matrix_pos_52"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_53"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_54"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -295,6 +397,158 @@
                 android:visibility="invisible"/>
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/main_matrix_pos_62"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_63"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_64"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <!-- Row 8 -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/padding_rows_vertical">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_70"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_71"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_72"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_73"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_74"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <!-- Row 9 -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/padding_rows_vertical">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_80"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_81"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_82"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_83"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_84"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <!-- Row 10 -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/padding_rows_vertical">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_90"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_91"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_92"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_93"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/barrier"
+                android:visibility="invisible"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_matrix_pos_94"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
