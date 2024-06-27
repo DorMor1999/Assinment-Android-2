@@ -18,6 +18,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.assignment_android_2.Logic.GameManager;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.google.android.material.textview.MaterialTextView;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private ExtendedFloatingActionButton main_FAB_right_arrow;
     private AppCompatImageView[][] main_matrix_IMG;
     private AppCompatImageView[] main_cols_IMG_cars;
+    private MaterialTextView main_LBL_points;
     private GameManager gameManager;
     private static final long DELAY = 1000L;
     private long startTime;
@@ -37,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
     private boolean timerOn = false;
 
     private Timer timer;
+
+    private final String REASON_OTHER = "other";
+    private final String REASON_TIMER = "timer";
 
 
     @Override
@@ -160,6 +165,8 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.main_col_car_4)
         };
 
+        //points text view
+        main_LBL_points = findViewById(R.id.main_LBL_points);
     }
 
     private void initViews() {
@@ -170,10 +177,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void moveClicked(String direction) {
         gameManager.moveCar(direction);
-        refreshUI();
+        refreshUI(REASON_OTHER);
     }
 
-    private void refreshUI(){
+    private void refreshUI(String reason){
         //lost
         if(gameManager.isGameLost()){
             Log.d("lost","lost");
@@ -188,8 +195,17 @@ public class MainActivity extends AppCompatActivity {
             updateMatrixUI();
             //update hearts
             updateHeartsUI();
+            //update points
+            if (reason.equals(REASON_TIMER)){
+                updatePointsUI();
+            }
         }
     };
+
+    private void updatePointsUI(){
+        gameManager.checkPointsAndUpdatePoints();
+        main_LBL_points.setText(String.valueOf(gameManager.getPoints()));
+    }
 
     private void updateHeartsUI(){
         boolean crushNow = gameManager.checkCrushAndUpdateLivesAndNumCrushes();
@@ -227,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void changeMatrixTime(){
         gameManager.matrixChangePeriod();
-        refreshUI();
+        refreshUI(REASON_TIMER);
     }
 
     private void startTimer() {

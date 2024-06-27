@@ -8,4 +8,6 @@
     <dimen name="margin_bottom_car_row">0dp</dimen>
     <dimen name="row_height">66dp</dimen>
     <dimen name="padding_rows_vertical">5dp</dimen>
+    <dimen name="points_size">36sp</dimen>
+    <dimen name="points_up_margin">9dp</dimen>
 </resources>

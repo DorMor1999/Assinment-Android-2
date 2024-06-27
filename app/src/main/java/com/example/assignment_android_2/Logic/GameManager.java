@@ -8,7 +8,7 @@ public class GameManager {
 
     private int lives;
     private int numCrushes = 0;
-
+    private int points = 0;
     private int carPosition; // 0 = left, 1 = mid, 2 = right
     private final int matrixRows;
     private final int matrixCols;
@@ -66,6 +66,10 @@ public class GameManager {
 
     public int getLives() {
         return lives;
+    }
+
+    public int getPoints() {
+        return points;
     }
 
     public void setCarPosition(int carPosition) {
@@ -128,5 +132,9 @@ public class GameManager {
             return true;
         }
         return false;
+    }
+
+    public void checkPointsAndUpdatePoints(){
+        points++;
     }
 }
