@@ -151,5 +151,8 @@ public class GameManager {
 
     public void checkPointsAndUpdatePoints(){
         points++;
+        if(getMatrix()[getMatrixRows() - 2][getCarPosition()].equals(getCOINS())){
+            points += 5;
+        }
     }
 }
