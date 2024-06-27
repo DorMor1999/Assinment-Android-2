@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private AppCompatImageView[] main_IMG_hearts;
     private ExtendedFloatingActionButton main_FAB_left_arrow;
     private ExtendedFloatingActionButton main_FAB_right_arrow;
-    private AppCompatImageView[][] main_matrix_IMG_barriers;
+    private AppCompatImageView[][] main_matrix_IMG;
     private AppCompatImageView[] main_cols_IMG_cars;
     private GameManager gameManager;
     private static final long DELAY = 1000L;
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         findViews();
-        gameManager = new GameManager(main_IMG_hearts.length, main_matrix_IMG_barriers.length, main_matrix_IMG_barriers[0].length);
+        gameManager = new GameManager(main_IMG_hearts.length, main_matrix_IMG.length, main_matrix_IMG[0].length);
         initViews();
     }
 
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         main_FAB_right_arrow = findViewById(R.id.main_FAB_right_arrow);
 
         //matrix of barriers
-        main_matrix_IMG_barriers = new AppCompatImageView[][]{
+        main_matrix_IMG = new AppCompatImageView[][]{
                 {
                         findViewById(R.id.main_matrix_pos_00),
                         findViewById(R.id.main_matrix_pos_01),
@@ -204,9 +204,9 @@ public class MainActivity extends AppCompatActivity {
             for (int j = 0; j < gameManager.getMatrixCols(); j++) {
                 String currentCol = gameManager.getMatrix()[i][j];
                 if(currentCol.equals(gameManager.getNONE())){
-                    main_matrix_IMG_barriers[i][j].setVisibility(View.INVISIBLE);
+                    main_matrix_IMG[i][j].setVisibility(View.INVISIBLE);
                 } else if (currentCol.equals(gameManager.getBARRIER())) {
-                    main_matrix_IMG_barriers[i][j].setVisibility(View.VISIBLE);
+                    main_matrix_IMG[i][j].setVisibility(View.VISIBLE);
                 }
             }
         }
