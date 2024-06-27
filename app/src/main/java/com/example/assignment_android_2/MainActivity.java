@@ -222,6 +222,10 @@ public class MainActivity extends AppCompatActivity {
                 if(currentCol.equals(gameManager.getNONE())){
                     main_matrix_IMG[i][j].setVisibility(View.INVISIBLE);
                 } else if (currentCol.equals(gameManager.getBARRIER())) {
+                    main_matrix_IMG[i][j].setImageResource(R.drawable.barrier);
+                    main_matrix_IMG[i][j].setVisibility(View.VISIBLE);
+                }else if (currentCol.equals(gameManager.getCOINS())) {
+                    main_matrix_IMG[i][j].setImageResource(R.drawable.coins);
                     main_matrix_IMG[i][j].setVisibility(View.VISIBLE);
                 }
             }

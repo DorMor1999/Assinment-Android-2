@@ -3,6 +3,7 @@ package com.example.assignment_android_2.Logic;
 public class GameManager {
     private final String NONE = "none";
     private final String BARRIER = "barrier";
+    private final String COINS = "coins";
 
     private String[][] matrix;
 
@@ -12,6 +13,7 @@ public class GameManager {
     private int carPosition; // 0 = left, 1 = mid, 2 = right
     private final int matrixRows;
     private final int matrixCols;
+    private final int CHANCE_FOR_COINS = 5;
 
     public GameManager(int lives, int matrixRows, int matrixCols) {
         this.lives = lives;
@@ -52,6 +54,9 @@ public class GameManager {
 
     public String getNONE() {
         return NONE;
+    }
+    public String getCOINS() {
+        return COINS;
     }
 
 
@@ -122,6 +127,16 @@ public class GameManager {
         getMatrix()[0][randomNumberCol2] = getBARRIER();
 
 
+        //fill top row in chance of 1/5 with coins 0-CHANCE_FOR_COINS range
+        int bet = (int) (Math.random() * CHANCE_FOR_COINS); // Generates a random number between 0 (inclusive) and CHANCE_FOR_COINS (exclusive)
+        int result = (int) (Math.random() * CHANCE_FOR_COINS); // Generates a random number between 0 (inclusive) and CHANCE_FOR_COINS (exclusive)
+        if (bet == result){
+            int randomNumberCol3;
+            do {
+                randomNumberCol3 = (int) (Math.random() * getMatrixCols()); // Generates a random number between 0 (inclusive) and matrixCols (exclusive)
+            }while (randomNumberCol3 == randomNumberCol1 || randomNumberCol3 == randomNumberCol2);
+            getMatrix()[0][randomNumberCol3] = getCOINS();
+        }
     }
 
 
