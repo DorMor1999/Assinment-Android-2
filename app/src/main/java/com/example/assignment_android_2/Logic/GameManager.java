@@ -111,9 +111,11 @@ public class GameManager {
             }
         }
 
-        //fill top row add new barrier
-        int randomNumberCol = (int) (Math.random() * getMatrixCols()); // Generates a random number between 0 (inclusive) and matrixCols (exclusive)
-        getMatrix()[0][randomNumberCol] = getBARRIER();
+        //fill top row add new barrier or 2 barriers if they get the same number i adding 1 barrier if they get different number i adding 2 barriers
+        int randomNumberCol1 = (int) (Math.random() * getMatrixCols()); // Generates a random number between 0 (inclusive) and matrixCols (exclusive)
+        int randomNumberCol2 = (int) (Math.random() * getMatrixCols()); // Generates a random number between 0 (inclusive) and matrixCols (exclusive)
+        getMatrix()[0][randomNumberCol1] = getBARRIER();
+        getMatrix()[0][randomNumberCol2] = getBARRIER();
 
 
     }
