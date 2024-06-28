@@ -17,6 +17,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.assignment_android_2.Logic.GameManager;
+import com.example.assignment_android_2.Utilities.SoundPlayer;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.textview.MaterialTextView;
 
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     private final String REASON_OTHER = "other";
     private final String REASON_TIMER = "timer";
-
+    private SoundPlayer soundPlayerCrush;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -214,8 +215,11 @@ public class MainActivity extends AppCompatActivity {
     private void updateHeartsUI(){
         boolean crushNow = gameManager.checkCrushAndUpdateLivesAndNumCrushes();
         if (crushNow){
+            soundPlayerCrush = new SoundPlayer(this);
+            soundPlayerCrush.playSound(R.raw.car_crash);
             toastAndVibrate("crush " + gameManager.getNumCrushes() +" !!!");
             main_IMG_hearts[gameManager.getNumCrushes() - 1].setVisibility(View.INVISIBLE);
+            soundPlayerCrush.stopSound();
         }
 
     }
