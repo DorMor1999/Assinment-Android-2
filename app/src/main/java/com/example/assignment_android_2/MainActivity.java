@@ -196,14 +196,18 @@ public class MainActivity extends AppCompatActivity {
             //update hearts
             updateHeartsUI();
             //update points
-            if (reason.equals(REASON_TIMER)){
-                updatePointsUI();
-            }
+            updatePointsUI(reason);
+
         }
     };
 
-    private void updatePointsUI(){
-        gameManager.checkPointsAndUpdatePoints();
+    private void updatePointsUI(String reason){
+        // +1 every timer
+        if (reason.equals(REASON_TIMER)){
+            gameManager.updatePointsByTimer();
+        }
+        // +5 every money collision
+        gameManager.updatePointsByMoney();
         main_LBL_points.setText(String.valueOf(gameManager.getPoints()));
     }
 

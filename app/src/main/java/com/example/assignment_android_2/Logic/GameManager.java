@@ -149,8 +149,11 @@ public class GameManager {
         return false;
     }
 
-    public void checkPointsAndUpdatePoints(){
+    public void updatePointsByTimer(){
         points++;
+    }
+
+    public  void  updatePointsByMoney(){
         if(getMatrix()[getMatrixRows() - 2][getCarPosition()].equals(getCOINS())){
             points += 5;
         }
