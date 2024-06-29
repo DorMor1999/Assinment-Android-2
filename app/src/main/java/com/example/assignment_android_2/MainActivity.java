@@ -16,7 +16,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.assignment_android_2.Interfaces.MoveCallback;
 import com.example.assignment_android_2.Logic.GameManager;
+import com.example.assignment_android_2.Utilities.MoveDetector;
 import com.example.assignment_android_2.Utilities.SoundPlayer;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.textview.MaterialTextView;
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private final String REASON_OTHER = "other";
     private final String REASON_TIMER = "timer";
     private SoundPlayer soundPlayerCrush;
+    private MoveDetector moveDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,17 +56,38 @@ public class MainActivity extends AppCompatActivity {
         findViews();
         gameManager = new GameManager(main_IMG_hearts.length, main_matrix_IMG.length, main_matrix_IMG[0].length);
         initViews();
+        initMoveDetector();
+    }
+
+    private void initMoveDetector() {
+        moveDetector = new MoveDetector(this,
+                new MoveCallback() {
+                    @Override
+                    public void moveLeft() {
+                        // what to do if x move left
+                        moveClicked("left");
+                    }
+
+                    @Override
+                    public void moveRight() {
+                        // what to do if x move right
+                        moveClicked("right");
+                    }
+                }
+        );
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        moveDetector.start();
         startTimer();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        moveDetector.stop();
         stopTimer();
     }
 
