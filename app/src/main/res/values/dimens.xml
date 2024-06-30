@@ -17,5 +17,5 @@
     <dimen name="form_margin_start_activity">16dp</dimen>
     <dimen name="form_padding_start_activity">16dp</dimen>
     <dimen name="margin_top_buttons_start_activity">16dp</dimen>
-    <dimen name="pic_width_and_height">220dp</dimen>
+    <dimen name="pic_width_and_height">200dp</dimen>
 </resources>

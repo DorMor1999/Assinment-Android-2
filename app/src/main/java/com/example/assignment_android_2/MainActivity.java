@@ -1,6 +1,7 @@
 package com.example.assignment_android_2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.VibrationEffect;
@@ -29,6 +30,8 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String KEY_GAME_SPEED = "KEY_GAME_SPEED";
+    public static final String KEY_MOVEMENT = "KEY_MOVEMENT";
     private AppCompatImageView[] main_IMG_hearts;
     private ExtendedFloatingActionButton main_FAB_left_arrow;
     private ExtendedFloatingActionButton main_FAB_right_arrow;
@@ -36,7 +39,9 @@ public class MainActivity extends AppCompatActivity {
     private AppCompatImageView[] main_cols_IMG_cars;
     private MaterialTextView main_LBL_points;
     private GameManager gameManager;
-    private static final long DELAY = 1000L;
+    private final long DELAYSLOW = 1000L;
+    private final long DELAYFAST = 750L;
+    private static long DELAY;
     private long startTime;
 
     private boolean timerOn = false;
@@ -47,6 +52,13 @@ public class MainActivity extends AppCompatActivity {
     private final String REASON_TIMER = "timer";
     private SoundPlayer soundPlayerCrush;
     private MoveDetector moveDetector;
+    private String gameSpeed;
+    private String movement;
+    private final String SLOW = "slow";
+    private final String FAST = "fast";
+    private final String BUTTONS = "buttons";
+    private final String SENSORS = "sensors";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,39 +67,60 @@ public class MainActivity extends AppCompatActivity {
 
         findViews();
         gameManager = new GameManager(main_IMG_hearts.length, main_matrix_IMG.length, main_matrix_IMG[0].length);
+        Intent previousIntent = getIntent();
+        gameSpeed = previousIntent.getStringExtra(KEY_GAME_SPEED);
+        movement = previousIntent.getStringExtra(KEY_MOVEMENT);
         initViews();
         initMoveDetector();
+        initDelay();
+    }
+
+    private void initDelay(){
+        if (gameSpeed.equals(FAST)){
+            DELAY = DELAYFAST;
+        } else if (gameSpeed.equals(SLOW)) {
+            DELAY = DELAYSLOW;
+        }
     }
 
     private void initMoveDetector() {
-        moveDetector = new MoveDetector(this,
-                new MoveCallback() {
-                    @Override
-                    public void moveLeft() {
-                        // what to do if x move left
-                        moveClicked("left");
-                    }
+        if (!movement.equals(SENSORS)){
+            return;
+        }
+        else{
+            moveDetector = new MoveDetector(this,
+                    new MoveCallback() {
+                        @Override
+                        public void moveLeft() {
+                            // what to do if x move left
+                            moveClicked("left");
+                        }
 
-                    @Override
-                    public void moveRight() {
-                        // what to do if x move right
-                        moveClicked("right");
+                        @Override
+                        public void moveRight() {
+                            // what to do if x move right
+                            moveClicked("right");
+                        }
                     }
-                }
-        );
+            );
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        moveDetector.start();
+        if (movement.equals(SENSORS)){
+            moveDetector.start();
+        }
         startTimer();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        moveDetector.stop();
+        if (movement.equals(SENSORS)){
+            moveDetector.stop();
+        }
         stopTimer();
     }
 
@@ -195,9 +228,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        main_FAB_left_arrow.setOnClickListener(v -> moveClicked("left"));
-        main_FAB_right_arrow.setOnClickListener(v -> moveClicked("right"));
-
+        if (!movement.equals(BUTTONS)){
+            main_FAB_left_arrow.setVisibility(View.INVISIBLE);
+            main_FAB_right_arrow.setVisibility(View.INVISIBLE);
+        }
+        else {
+            main_FAB_left_arrow.setOnClickListener(v -> moveClicked("left"));
+            main_FAB_right_arrow.setOnClickListener(v -> moveClicked("right"));
+        }
     }
 
     private void moveClicked(String direction) {

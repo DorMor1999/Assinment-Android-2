@@ -8,4 +8,5 @@
     <color name="gray">#9FA6B2</color>
     <color name="green_button">#14A44D</color>
     <color name="dark_button">#332D2D</color>
+    <color name="alert_red">#D50000</color>
 </resources>

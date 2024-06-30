@@ -9,4 +9,5 @@
     <string name="sensors_string">Sensors</string>
     <string name="play_string">Play</string>
     <string name="records_string">Records</string>
+    <string name="alert_start_activity">Please enter the game options!</string>
 </resources>
