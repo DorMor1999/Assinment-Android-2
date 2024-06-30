@@ -10,19 +10,19 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
+import com.example.assignment_android_2.Data.RecordList;
+import com.example.assignment_android_2.Data.Record;
+import com.example.assignment_android_2.Data.SharePreferencesManager;
 import com.example.assignment_android_2.Interfaces.MoveCallback;
 import com.example.assignment_android_2.Logic.GameManager;
 import com.example.assignment_android_2.Utilities.MoveDetector;
 import com.example.assignment_android_2.Utilities.SoundPlayer;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.textview.MaterialTextView;
+import com.google.gson.Gson;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
     private final String FAST = "fast";
     private final String BUTTONS = "buttons";
     private final String SENSORS = "sensors";
+    private final String KEY_RECORDS_SPM = "recordList";
 
 
     @Override
@@ -248,6 +249,7 @@ public class MainActivity extends AppCompatActivity {
         if(gameManager.isGameLost()){
             Log.d("lost","lost");
             stopTimer();
+            updateRecords();
             return;
         }
         //game on
@@ -263,6 +265,26 @@ public class MainActivity extends AppCompatActivity {
 
         }
     };
+
+    private void updateRecords(){
+        Gson gson = new Gson();
+        //getting data
+        String recordListAsJson = SharePreferencesManager
+                .getInstance()
+                .getString(KEY_RECORDS_SPM, "");
+        RecordList recordList = gson.fromJson(recordListAsJson, RecordList.class);
+        if (recordList == null){
+            recordList = new RecordList();
+        }
+        Record newRecord = new Record(gameManager.getPoints(), 32.1129923, 34.8182147);
+        recordList.addRecord(newRecord);
+        Log.d("RecordList", recordList.toString());
+        String newRecordListAsJson = gson.toJson(recordList);
+        //saving data
+        SharePreferencesManager
+                .getInstance()
+                .putString(KEY_RECORDS_SPM, newRecordListAsJson);
+    }
 
     private void updatePointsUI(String reason){
         // +1 every timer
