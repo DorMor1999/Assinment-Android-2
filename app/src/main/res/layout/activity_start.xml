@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".startActivity">
+
+    <!--title part-->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/start_LBL_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/game_name_string"
+        android:textColor="@color/black"
+        android:textSize="@dimen/title_size_start_activity"
+        android:textStyle="bold"
+        android:background="@color/gray"
+        android:padding="@dimen/title_padding_start_activity"
+        android:layout_marginBottom="@dimen/title_margin_bottom_start_activity"
+        />
+
+
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/matrix_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start_LBL_title"
+        android:layout_margin="@dimen/form_margin_start_activity"
+        android:padding="@dimen/form_padding_start_activity"
+        android:orientation="vertical"
+        android:background="@color/gray">
+
+
+        <!--form part-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/start_linear_layout_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            >
+
+            <!--game speed part-->
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/game_speed_string"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/form_title_size_start_activity"
+                    android:textStyle="bold"
+
+                    />
+
+                <RadioButton android:id="@+id/radio_slow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/slow_string"
+                    android:checked="true"/>
+                <RadioButton android:id="@+id/radio_fast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fast_string"/>
+            </RadioGroup>
+
+            <!--movement part-->
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/movement_string"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/form_title_size_start_activity"
+                    android:textStyle="bold"
+                    />
+
+                <RadioButton android:id="@+id/radio_buttons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buttons_string"
+                    android:checked="true"/>
+                <RadioButton android:id="@+id/radio_sensors"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sensors_string"/>
+            </RadioGroup>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <!--play button part-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/main_BTN_play"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/margin_top_buttons_start_activity"
+            app:backgroundTint="@color/green_button"
+            android:text="@string/play_string" />
+
+        <!--records button part-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/main_BTN_records"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/margin_top_buttons_start_activity"
+            android:text="@string/records_string"
+            app:backgroundTint="@color/dark_button"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        >
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/pic_width_and_height"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/car"
+            android:visibility="visible"
+            android:layout_marginBottom="@dimen/default_margin"
+            android:rotation="-90"/>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</RelativeLayout>

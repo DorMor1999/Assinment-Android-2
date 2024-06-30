@@ -10,4 +10,12 @@
     <dimen name="padding_rows_vertical">5dp</dimen>
     <dimen name="points_size">36sp</dimen>
     <dimen name="points_up_margin">9dp</dimen>
+    <dimen name="title_size_start_activity">42sp</dimen>
+    <dimen name="title_padding_start_activity">32dp</dimen>
+    <dimen name="title_margin_bottom_start_activity">32dp</dimen>
+    <dimen name="form_title_size_start_activity">20sp</dimen>
+    <dimen name="form_margin_start_activity">16dp</dimen>
+    <dimen name="form_padding_start_activity">16dp</dimen>
+    <dimen name="margin_top_buttons_start_activity">16dp</dimen>
+    <dimen name="pic_width_and_height">220dp</dimen>
 </resources>

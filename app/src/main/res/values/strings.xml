@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Assignment_Android_2</string>
+    <string name="game_name_string">Driver license</string>
+    <string name="game_speed_string">Game speed:</string>
+    <string name="slow_string">Slow</string>
+    <string name="fast_string">Fast</string>
+    <string name="movement_string">Movement:</string>
+    <string name="buttons_string">Buttons</string>
+    <string name="sensors_string">Sensors</string>
+    <string name="play_string">Play</string>
+    <string name="records_string">Records</string>
 </resources>
