@@ -19,6 +19,7 @@ import com.example.assignment_android_2.Data.SharePreferencesManager;
 import com.example.assignment_android_2.Interfaces.MoveCallback;
 import com.example.assignment_android_2.Logic.GameManager;
 import com.example.assignment_android_2.Utilities.MoveDetector;
+import com.example.assignment_android_2.Utilities.SignalManager;
 import com.example.assignment_android_2.Utilities.SoundPlayer;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.textview.MaterialTextView;
@@ -364,23 +365,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void toastAndVibrate(String text) {
-        vibrate();
-        toast(text);
-    }
-
-    private void toast(String text) {
-        Toast.makeText(this, text, Toast.LENGTH_LONG).show();
-    }
-
-    private void vibrate() {
-        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        // Vibrate for 500 milliseconds
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
-        } else {
-            //deprecated in API 26
-            v.vibrate(500);
-        }
+        SignalManager.getInstance().vibrate(500);
+        SignalManager.getInstance().toast(text);
     }
 
 }
