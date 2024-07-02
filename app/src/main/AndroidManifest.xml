@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Assignment_Android_2"
         tools:targetApi="31">
         <activity
+            android:name=".recordsActivity"
+            android:exported="false" />
+        <activity
             android:name=".startActivity"
             android:exported="true">
             <intent-filter>
@@ -27,8 +30,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
