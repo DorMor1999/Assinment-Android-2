@@ -49,7 +49,7 @@ public class RecordList {
     public static class RecordPointsComparator implements Comparator<Record> {
         @Override
         public int compare(Record r1, Record r2) {
-            return Integer.compare(r1.getPoints(), r2.getPoints());
+            return Integer.compare(r2.getPoints(), r1.getPoints());
         }
     }
 

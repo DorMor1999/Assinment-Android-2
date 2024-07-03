@@ -1,29 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/records"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".recordsActivity">
 
-    <FrameLayout
-        android:id="@+id/records_FRAME_list"
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/top_container_last_score_and_back_button"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="20dp"
-        android:background="#ffffff"/>
+        android:layout_height="@dimen/top_container"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/default_margin">
+
+        <TextView
+            android:id="@+id/last_score_label"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/item_size_text"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            android:visibility="gone"
+            />
 
 
-    <FrameLayout
-        android:id="@+id/records_FRAME_map"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/menu_BTN"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Menu"
+            app:backgroundTint="@color/dark_button"
+            android:layout_marginHorizontal="@dimen/default_margin"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/records"
+        android:layout_below="@id/top_container_last_score_and_back_button"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="20dp"
-        android:background="#000000"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
+        <FrameLayout
+            android:id="@+id/records_FRAME_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="20dp"
+            android:background="#ffffff"/>
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+        <FrameLayout
+            android:id="@+id/records_FRAME_map"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="20dp"
+            android:background="#000000"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</LinearLayout>

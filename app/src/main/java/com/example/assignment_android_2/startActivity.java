@@ -46,6 +46,7 @@ public class startActivity extends AppCompatActivity {
     private void initViews() {
         //go to others activities
         main_BTN_play.setOnClickListener(v -> playClicked());
+        main_BTN_records.setOnClickListener(v -> recordsClicked());
 
 
 
@@ -72,6 +73,13 @@ public class startActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void recordsClicked() {
+        //move to records activity
+        Intent intent = new Intent(this, recordsActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void playClicked(){

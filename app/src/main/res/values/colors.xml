@@ -9,4 +9,7 @@
     <color name="green_button">#14A44D</color>
     <color name="dark_button">#332D2D</color>
     <color name="alert_red">#D50000</color>
+    <color name="blue_grey_50">#ECEFF1</color>
+    <color name="blue_grey_100">#CFD8DC</color>
+    <color name="top_row_grey_color">#90A4AE</color>
 </resources>
