@@ -66,7 +66,7 @@ public class recordsActivity extends AppCompatActivity implements Callback_ListI
     @Override
     public void listItemClicked(double lat, double lon) {
         if (mapFragment != null) {
-            //mapFragment.zoom(lat, lon);
+            mapFragment.zoom(lat, lon);
             Log.d("cords",  lat + " " + lon);
         }
     }
