@@ -16,6 +16,7 @@ import androidx.appcompat.widget.AppCompatImageView;
 import com.example.assignment_android_2.Data.RecordList;
 import com.example.assignment_android_2.Data.Record;
 import com.example.assignment_android_2.Data.SharePreferencesManager;
+import com.example.assignment_android_2.Interfaces.GameModeOptions;
 import com.example.assignment_android_2.Interfaces.MoveCallback;
 import com.example.assignment_android_2.Logic.GameManager;
 import com.example.assignment_android_2.Utilities.MoveDetector;
@@ -29,7 +30,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements GameModeOptions {
 
     public static final String KEY_GAME_SPEED = "KEY_GAME_SPEED";
     public static final String KEY_MOVEMENT = "KEY_MOVEMENT";
@@ -55,10 +56,6 @@ public class MainActivity extends AppCompatActivity {
     private MoveDetector moveDetector;
     private String gameSpeed;
     private String movement;
-    private final String SLOW = "slow";
-    private final String FAST = "fast";
-    private final String BUTTONS = "buttons";
-    private final String SENSORS = "sensors";
     private final String KEY_RECORDS_SPM = "recordList";
 
 
@@ -66,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         findViews();
         gameManager = new GameManager(main_IMG_hearts.length, main_matrix_IMG.length, main_matrix_IMG[0].length);
         decideGameMods();

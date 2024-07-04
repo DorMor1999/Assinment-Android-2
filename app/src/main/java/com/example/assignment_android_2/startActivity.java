@@ -13,10 +13,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.assignment_android_2.Interfaces.GameModeOptions;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
 
-public class startActivity extends AppCompatActivity {
+public class startActivity extends AppCompatActivity implements GameModeOptions {
 
 
     private MaterialButton start_BTN_play;
@@ -29,11 +30,6 @@ public class startActivity extends AppCompatActivity {
     private RadioGroup radio_group_movement;
     private String gameSpeed;
     private String movement;
-
-    private final String SLOW = "slow";
-    private final String FAST = "fast";
-    private final String BUTTONS = "buttons";
-    private final String SENSORS = "sensors";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
