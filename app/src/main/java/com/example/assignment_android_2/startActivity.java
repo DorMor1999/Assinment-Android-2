@@ -19,8 +19,8 @@ import com.google.android.material.textview.MaterialTextView;
 public class startActivity extends AppCompatActivity {
 
 
-    private MaterialButton main_BTN_play;
-    private MaterialButton main_BTN_records;
+    private MaterialButton start_BTN_play;
+    private MaterialButton start_BTN_records;
     private RadioButton radio_slow;
     private RadioButton radio_fast;
     private RadioButton radio_buttons;
@@ -45,8 +45,8 @@ public class startActivity extends AppCompatActivity {
 
     private void initViews() {
         //go to others activities
-        main_BTN_play.setOnClickListener(v -> playClicked());
-        main_BTN_records.setOnClickListener(v -> recordsClicked());
+        start_BTN_play.setOnClickListener(v -> playClicked());
+        start_BTN_records.setOnClickListener(v -> recordsClicked());
 
 
 
@@ -94,8 +94,8 @@ public class startActivity extends AppCompatActivity {
     }
 
     private void findViews() {
-        main_BTN_play = findViewById(R.id.main_BTN_play);
-        main_BTN_records = findViewById(R.id.main_BTN_records);
+        start_BTN_play = findViewById(R.id.start_BTN_play);
+        start_BTN_records = findViewById(R.id.start_BTN_records);
         radio_slow = findViewById(R.id.radio_slow);
         radio_fast = findViewById(R.id.radio_fast);
         radio_buttons = findViewById(R.id.radio_buttons);

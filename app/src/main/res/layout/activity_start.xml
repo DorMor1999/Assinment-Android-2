@@ -108,7 +108,7 @@
 
         <!--play button part-->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/main_BTN_play"
+            android:id="@+id/start_BTN_play"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -118,7 +118,7 @@
 
         <!--records button part-->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/main_BTN_records"
+            android:id="@+id/start_BTN_records"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"

@@ -69,12 +69,16 @@ public class MainActivity extends AppCompatActivity {
 
         findViews();
         gameManager = new GameManager(main_IMG_hearts.length, main_matrix_IMG.length, main_matrix_IMG[0].length);
-        Intent previousIntent = getIntent();
-        gameSpeed = previousIntent.getStringExtra(KEY_GAME_SPEED);
-        movement = previousIntent.getStringExtra(KEY_MOVEMENT);
+        decideGameMods();
         initViews();
         initMoveDetector();
         initDelay();
+    }
+
+    private void decideGameMods() {
+        Intent previousIntent = getIntent();
+        gameSpeed = previousIntent.getStringExtra(KEY_GAME_SPEED);
+        movement = previousIntent.getStringExtra(KEY_MOVEMENT);
     }
 
     private void initDelay(){
