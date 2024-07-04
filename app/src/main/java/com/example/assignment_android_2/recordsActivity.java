@@ -2,9 +2,11 @@ package com.example.assignment_android_2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,8 +28,11 @@ public class recordsActivity extends AppCompatActivity {
 
     private ListFragment listFragment;
     private MapFragment mapFragment;
+    public static final String KEY_LAST_SCORE = "KEY_LAST_SCORE";
+
 
     private MaterialButton menu_BTN;
+    private TextView last_score_label;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,16 +48,31 @@ public class recordsActivity extends AppCompatActivity {
         records_FRAME_list = findViewById(R.id.records_FRAME_list);
         records_FRAME_map = findViewById(R.id.records_FRAME_map);
         menu_BTN = findViewById(R.id.menu_BTN);
+        last_score_label = findViewById(R.id.last_score_label);
     }
 
     private void initViews(){
         menu_BTN.setOnClickListener(v -> menuClicked());
         listFragment = new ListFragment();
 
+        checkLastScoreAndDisplay();
+
         //show fragments
         getSupportFragmentManager().beginTransaction().add(R.id.records_FRAME_list,listFragment).commit();
         mapFragment = new MapFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.records_FRAME_map,mapFragment).commit();
+    }
+
+    private void checkLastScoreAndDisplay() {
+        Intent previousIntent = getIntent();
+        String lastScore = previousIntent.getStringExtra(KEY_LAST_SCORE);
+        if (lastScore != null){
+            last_score_label.setText("Last score: " + lastScore);
+            last_score_label.setVisibility(View.VISIBLE);
+        }
+        else {
+            last_score_label.setVisibility(View.GONE);
+        }
     }
 
     private void menuClicked() {

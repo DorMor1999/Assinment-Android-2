@@ -251,6 +251,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("lost","lost");
             stopTimer();
             updateRecords();
+            moveToRecordActivity();
             return;
         }
         //game on
@@ -265,7 +266,17 @@ public class MainActivity extends AppCompatActivity {
             updatePointsUI(reason);
 
         }
-    };
+    }
+
+    private void moveToRecordActivity() {
+        //move to game activity
+        Intent intent = new Intent(this, recordsActivity.class);
+        intent.putExtra(recordsActivity.KEY_LAST_SCORE, String.valueOf(gameManager.getPoints()));
+        startActivity(intent);
+        finish();
+    }
+
+    ;
 
     private void updateRecords(){
         Gson gson = new Gson();

@@ -12,13 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/top_container"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="@dimen/default_margin">
+        android:layout_marginVertical="@dimen/default_margin">
 
         <TextView
             android:id="@+id/last_score_label"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:textSize="@dimen/item_size_text"
+            android:textSize="@dimen/last_score_label_size"
+            android:textStyle="bold"
             android:layout_weight="1"
             android:layout_marginHorizontal="@dimen/default_margin"
             android:visibility="gone"

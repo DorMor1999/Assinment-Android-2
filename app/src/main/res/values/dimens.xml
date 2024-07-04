@@ -21,4 +21,5 @@
     <dimen name="item_size_text">15sp</dimen>
     <dimen name="padding_item_linear_layout">8dp</dimen>
     <dimen name="top_container">40dp</dimen>
+    <dimen name="last_score_label_size">20sp</dimen>
 </resources>
