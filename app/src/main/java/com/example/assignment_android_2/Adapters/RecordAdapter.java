@@ -19,9 +19,15 @@ import java.util.ArrayList;
 public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordViewHolder>{
 
     private final ArrayList<Record> records_list;
+    private OnItemClickListener onItemClickListener;
 
-    public RecordAdapter(ArrayList<Record> records_list){
+    public interface OnItemClickListener {
+        void onItemClick(double lat, double lon);
+    }
+
+    public RecordAdapter(ArrayList<Record> records_list, OnItemClickListener onItemClickListener) {
         this.records_list = records_list;
+        this.onItemClickListener = onItemClickListener;
     }
 
     @NonNull
@@ -47,6 +53,12 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
             int colorOdd = ContextCompat.getColor(holder.itemView.getContext(), R.color.blue_grey_50);
             holder.item_container.setBackgroundColor(colorOdd);
         }
+
+        holder.itemView.setOnClickListener(v -> {
+            if (onItemClickListener != null) {
+                onItemClickListener.onItemClick(record.getLatitude(), record.getLongitude());
+            }
+        });
     }
 
     @Override
@@ -58,7 +70,7 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
         return records_list.get(position);
     }
 
-    public class RecordViewHolder extends RecyclerView.ViewHolder {
+    public static class RecordViewHolder extends RecyclerView.ViewHolder {
         private final LinearLayoutCompat item_container;
         private final TextView item_date;
         private final TextView item_time;

@@ -15,6 +15,7 @@ import android.widget.ListView;
 import com.example.assignment_android_2.Adapters.RecordAdapter;
 import com.example.assignment_android_2.Data.RecordList;
 import com.example.assignment_android_2.Data.SharePreferencesManager;
+import com.example.assignment_android_2.Interfaces.Callback_ListItemClicked;
 import com.example.assignment_android_2.R;
 import com.google.gson.Gson;
 
@@ -25,8 +26,14 @@ public class ListFragment extends Fragment {
     private RecordList recordList;
     private final String KEY_RECORDS_SPM = "recordList";
 
+    private Callback_ListItemClicked callbackListItemClicked;
+
     public ListFragment() {
         // Required empty public constructor
+    }
+
+    public void setCallbackListItemClicked(Callback_ListItemClicked callbackListItemClicked) {
+        this.callbackListItemClicked = callbackListItemClicked;
     }
 
     @Override
@@ -41,8 +48,12 @@ public class ListFragment extends Fragment {
     }
 
     private void initViews() {
-        RecordAdapter recordAdapter = new RecordAdapter(recordList.getRecordsTop10());
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(requireContext()); // Use requireContext() to get the Fragment's context
+        RecordAdapter recordAdapter = new RecordAdapter(recordList.getRecordsTop10(), (lat, lon) -> {
+            if (callbackListItemClicked != null) {
+                callbackListItemClicked.listItemClicked(lat, lon);
+            }
+        });
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(requireContext());
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         records_LST.setLayoutManager(linearLayoutManager);
         records_LST.setAdapter(recordAdapter);
@@ -54,7 +65,7 @@ public class ListFragment extends Fragment {
 
     private void initListData() {
         Gson gson = new Gson();
-        //getting data
+        // Getting data
         String recordListAsJson = SharePreferencesManager
                 .getInstance()
                 .getString(KEY_RECORDS_SPM, "");
