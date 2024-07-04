@@ -1,24 +1,20 @@
 package com.example.assignment_android_2;
 
-import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
 
-import com.example.assignment_android_2.Data.RecordList;
 import com.example.assignment_android_2.Data.Record;
+import com.example.assignment_android_2.Data.RecordList;
 import com.example.assignment_android_2.Data.SharePreferencesManager;
 import com.example.assignment_android_2.Interfaces.GameModeOptions;
 import com.example.assignment_android_2.Interfaces.MoveCallback;
 import com.example.assignment_android_2.Logic.GameManager;
+import com.example.assignment_android_2.Utilities.LocationHelper;
 import com.example.assignment_android_2.Utilities.MoveDetector;
 import com.example.assignment_android_2.Utilities.SignalManager;
 import com.example.assignment_android_2.Utilities.SoundPlayer;
@@ -57,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements GameModeOptions {
     private String gameSpeed;
     private String movement;
     private final String KEY_RECORDS_SPM = "recordList";
+    private LocationHelper locationHelper;
 
 
     @Override
@@ -69,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements GameModeOptions {
         initViews();
         initMoveDetector();
         initDelay();
+        locationHelper = new LocationHelper(this);
     }
 
     private void decideGameMods() {
@@ -288,7 +286,7 @@ public class MainActivity extends AppCompatActivity implements GameModeOptions {
         if (recordList == null){
             recordList = new RecordList();
         }
-        Record newRecord = new Record(gameManager.getPoints(), 32.1129923, 34.8182147);
+        Record newRecord = new Record(gameManager.getPoints(), locationHelper.getLatitude(), locationHelper.getLongitude());
         recordList.addRecord(newRecord);
         Log.d("RecordList", recordList.toString());
         String newRecordListAsJson = gson.toJson(recordList);
@@ -378,6 +376,12 @@ public class MainActivity extends AppCompatActivity implements GameModeOptions {
     private void toastAndVibrate(String text) {
         SignalManager.getInstance().vibrate(500);
         SignalManager.getInstance().toast(text);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        locationHelper.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
 }
