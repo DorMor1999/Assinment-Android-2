@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements GameModeOptions {
     private MaterialTextView main_LBL_points;
     private GameManager gameManager;
     private final long DELAYSLOW = 1000L;
-    private final long DELAYFAST = 750L;
+    private final long DELAYFAST = 650L;
     private static long DELAY;
     private long startTime;
 
