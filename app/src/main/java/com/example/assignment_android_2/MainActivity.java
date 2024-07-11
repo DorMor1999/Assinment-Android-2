@@ -239,8 +239,10 @@ public class MainActivity extends AppCompatActivity implements GameModeOptions {
     }
 
     private void moveClicked(String direction) {
-        gameManager.moveCar(direction);
-        refreshUI(REASON_OTHER);
+        if (!(direction.equals("left") && gameManager.getCarPosition() == 0) && !(direction.equals("right") && gameManager.getCarPosition() == gameManager.getMatrixCols() -1)){
+            gameManager.moveCar(direction);
+            refreshUI(REASON_OTHER);
+        }
     }
 
     private void refreshUI(String reason){
