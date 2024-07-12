@@ -21,7 +21,7 @@
                     android:color="@color/game_icon_blue" /> <!-- Starting color -->
                 <item
                     android:offset="1.0"
-                    android:color="#7FFF00" /> <!-- Ending color -->
+                    android:color="@color/game_icon_green" /> <!-- Ending color -->
             </gradient>
         </aapt:attr>
     </path>
